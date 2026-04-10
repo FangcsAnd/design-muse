@@ -15,14 +15,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Prompt is required' }, { status: 400 });
     }
 
-    const apiKey = process.env.SD_API_KEY;
-
-    if (!apiKey) {
-      return NextResponse.json({ 
-        error: 'Missing API key',
-        details: 'Please set SD_API_KEY in .env.local'
-      }, { status: 500 });
-    }
+    const apiKey = process.env.SD_API_KEY || 'sk-EzVAaUxx1CcVuZ6NxW3c357eJdjsOV8YPy7R6BIlRwFKmwF9';
 
     const engineId = 'stable-diffusion-xl-1024-v1-0';
     

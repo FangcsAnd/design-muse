@@ -5,14 +5,7 @@ const KIMI_API_BASE = 'https://api.moonshot.cn/v1';
 export async function POST(request: NextRequest) {
   try {
     const { action, ...data } = await request.json();
-    const apiKey = process.env.KIMI_API_KEY;
-
-    if (!apiKey || apiKey === 'your-api-key-here') {
-      return NextResponse.json(
-        { error: '请先在 .env.local 中配置 KIMI_API_KEY' },
-        { status: 400 }
-      );
-    }
+    const apiKey = process.env.KIMI_API_KEY || 'sk-lfMalSCHX4gB35GkAh2f28cQSvM1LspqUNSbBf26GIFeXgZj';
 
     if (action === 'image') {
       const { prompt, model = 'moonshot-v1-auto' } = data;
