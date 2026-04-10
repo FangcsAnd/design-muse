@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
 
     const apiKey = process.env.SD_API_KEY || 'sk-EzVAaUxx1CcVuZ6NxW3c357eJdjsOV8YPy7R6BIlRwFKmwF9';
 
-    const engineId = 'stable-diffusion-3-0-fast';
+    const engineId = 'stable-diffusion-xl-1024-v1-0';
     
     const requestBody = {
       text_prompts: [
@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
     let lastError = '';
     
     for (let attempt = 1; attempt <= maxRetries; attempt++) {
-      const response = await fetch(`https://api.stability.ai/v1/generation/${engineId}/text-to-image`, {
+      const response = await fetch(`https://api.stability.ai/v2beta/generation/${engineId}/text-to-image`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
