@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
 
     const apiKey = process.env.SD_API_KEY || 'sk-EzVAaUxx1CcVuZ6NxW3c357eJdjsOV8YPy7R6BIlRwFKmwF9';
 
-    const engineId = 'stable-diffusion-xl-1024-v1-0';
+    const engineId = 'stable-diffusion-v1-6';
     
     const requestBody = {
       text_prompts: [
